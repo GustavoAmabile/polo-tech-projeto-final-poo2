@@ -1,10 +1,13 @@
 package com.locate.ada.veiculos;
 
+import com.locate.ada.enums.TipoVeiculo;
+
 public class Veiculo {
     private String placa;
     private String marca;
     private String modelo;
     private String tipo;
+    private TipoVeiculo tipoVeiculo;
     private boolean disponivel = true;
 
     public Veiculo() {
@@ -17,6 +20,13 @@ public class Veiculo {
         this.modelo = modelo;
         this.tipo = tipo;
 
+    }
+
+    public Veiculo(String placa, String marca, String modelo, TipoVeiculo tipoVeiculo) {
+        this.placa = placa;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.tipoVeiculo = tipoVeiculo;
     }
 
     public String getPlaca() {
@@ -51,6 +61,14 @@ public class Veiculo {
         this.tipo = tipo;
     }
 
+    public TipoVeiculo getTipoVeiculo() {
+        return tipoVeiculo;
+    }
+
+    public void setTipoVeiculo(TipoVeiculo tipoVeiculo) {
+        this.tipoVeiculo = tipoVeiculo;
+    }
+
     public boolean isDisponivel() {
         return disponivel;
     }
@@ -59,11 +77,22 @@ public class Veiculo {
         this.disponivel = disponivel;
     }
 
+//    @Override
+//    public String toString() {
+//        return "Placa='" + placa + '\'' +
+//                "Marca='" + marca + '\'' +
+//                "Modelo='" + modelo +'\'' +
+//                "Tipo='" + tipo;
+//    }
+
     @Override
     public String toString() {
-        return "Placa='" + placa + '\'' +
-                "Marca='" + marca + '\'' +
-                "Modelo='" + modelo +'\'' +
-                "Tipo='" + tipo;
+        return "Veiculo{" +
+                "placa='" + placa + '\'' +
+                ", marca='" + marca + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", tipoVeiculo=" + tipoVeiculo +
+                ", disponivel=" + disponivel +
+                '}';
     }
 }

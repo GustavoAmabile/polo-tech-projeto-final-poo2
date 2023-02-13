@@ -1,5 +1,6 @@
 package com.locate.ada.clientes;
 
+import com.locate.ada.enums.TipoPessoa;
 import com.locate.ada.interfaces.ClienteCadastravel;
 
 import java.util.ArrayList;
@@ -16,12 +17,12 @@ public class AdaClientes implements ClienteCadastravel {
 
     private void inserirClientesNaLista() {
 
-        Cliente cliente1 = new Cliente("João Silva", "000.000.000-10", "Pessoa Física");
-        Cliente cliente2 = new Cliente("Carlos Alberto", "000.000.000-20", "Pessoa Física");
-        Cliente cliente3 = new Cliente("Ana Júlia", "000.000.000-30", "Pessoa Física");
-        Cliente cliente4 = new Cliente("Polo Tech SA", "00.000.000/0001-01", "Pessoa Jurídica");
-        Cliente cliente5 = new Cliente("Consultoria 926", "00.000.000/0001-02", "Pessoa Jurídica");
-        Cliente cliente6 = new Cliente("Ada Tech", "00.000.000/0001-03", "Pessoa Jurídica");
+        Cliente cliente1 = new Cliente("João Silva", "000.000.000-10", TipoPessoa.PESSOA_FISICA);
+        Cliente cliente2 = new Cliente("Carlos Alberto", "000.000.000-20", TipoPessoa.PESSOA_FISICA);
+        Cliente cliente3 = new Cliente("Ana Júlia", "000.000.000-30", TipoPessoa.PESSOA_FISICA);
+        Cliente cliente4 = new Cliente("Polo Tech SA", "00.000.000/0001-01", TipoPessoa.PESSOA_JURIDICA);
+        Cliente cliente5 = new Cliente("Consultoria 926", "00.000.000/0001-02", TipoPessoa.PESSOA_JURIDICA);
+        Cliente cliente6 = new Cliente("Ada Tech", "00.000.000/0001-03", TipoPessoa.PESSOA_JURIDICA);
 
         clientesDaLocadora.add(cliente1);
         clientesDaLocadora.add(cliente2);
@@ -98,7 +99,6 @@ public class AdaClientes implements ClienteCadastravel {
             for (Cliente clienteProcurado : clientesDaLocadora) {
                 if (
                         clienteProcurado.getNome().contains(nome)
-                        || clienteProcurado.getTipo().contains(nome)
                         || clienteProcurado.getDocumento().contains(nome)
                 ) {
                     clientesProcurados.add(clienteProcurado);

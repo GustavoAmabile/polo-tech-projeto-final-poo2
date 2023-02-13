@@ -4,11 +4,8 @@ import com.locate.ada.clientes.Cliente;
 import com.locate.ada.interfaces.ContratoAluguel;
 import com.locate.ada.veiculos.AdaVeiculos;
 import com.locate.ada.veiculos.Veiculo;
-
 import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class Aluguel implements ContratoAluguel {
 

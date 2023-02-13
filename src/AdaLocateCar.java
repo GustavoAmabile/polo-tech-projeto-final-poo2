@@ -2,6 +2,8 @@ import com.locate.ada.alugueis.Aluguel;
 import com.locate.ada.alugueis.Retorno;
 import com.locate.ada.clientes.AdaClientes;
 import com.locate.ada.clientes.Cliente;
+import com.locate.ada.enums.TipoPessoa;
+import com.locate.ada.enums.TipoVeiculo;
 import com.locate.ada.interfaces.ContratoAluguel;
 import com.locate.ada.veiculos.AdaVeiculos;
 import com.locate.ada.veiculos.Veiculo;
@@ -16,14 +18,14 @@ public class AdaLocateCar {
         adaVeiculos.listarVeiculos();
         System.out.println();
 
-        adaVeiculos.adicionarVeiculo(new Veiculo("HHH-0010", "Chevrolet", "Cruize", "Médio"));
+        adaVeiculos.adicionarVeiculo(new Veiculo("HHH-0010", "Chevrolet", "Cruize", TipoVeiculo.MEDIO));
         adaVeiculos.listarVeiculos();
         System.out.println();
 
         adaVeiculos.atualizarVeiculo(adaVeiculos.getVeiculo("AAA-0002"),
-                new Veiculo("AAA-0012", "Kya", "Picanto", "Pequeno"));
+                new Veiculo("AAA-0012", "Kya", "Picanto", TipoVeiculo.PEQUENO));
         adaVeiculos.atualizarVeiculo(adaVeiculos.getVeiculo("Cruize"),
-                new Veiculo("AAA-1313", "Ford", "Eco Sport", "SUV"));
+                new Veiculo("AAA-1313", "Ford", "Eco Sport", TipoVeiculo.SUV));
         adaVeiculos.listarVeiculos();
         System.out.println();
         System.out.println();
@@ -50,15 +52,15 @@ public class AdaLocateCar {
         System.out.println();
 
         adaClientes
-                .adicionarCliente(new Cliente("Carla Alves", "000.000.000.04", "Pessoa Física"));
+                .adicionarCliente(new Cliente("Carla Alves", "000.000.000.04", TipoPessoa.PESSOA_FISICA));
         adaClientes
-                .adicionarCliente(new Cliente("Lojas Elétricas", "00.000.000/0001-04", "Pessoa Jurídica"));
+                .adicionarCliente(new Cliente("Lojas Elétricas", "00.000.000/0001-04", TipoPessoa.PESSOA_JURIDICA));
 
         adaClientes.listarClientes();
         System.out.println();
 
         adaClientes.atualizarCliente(adaClientes.getCliente("Consultoria 926"),
-                new Cliente("Consultoria 927", "00.000.000/0001-05", "Pessoa Jurídica"));
+                new Cliente("Consultoria 927", "00.000.000/0001-05", TipoPessoa.PESSOA_JURIDICA));
         adaClientes.listarClientes();
         System.out.println();
 
@@ -102,5 +104,11 @@ public class AdaLocateCar {
                 adaClientes.getCliente("Lojas Elétricas"),
                 LocalDateTime.now()
         );
+
+        System.out.println();
+        Veiculo veiculo = new Veiculo("AAB-0909", "Kya", "Sportage", TipoVeiculo.SUV);
+        Veiculo veiculo1 = new Veiculo("AAB-0909", "Kya", "Sportage", TipoVeiculo.PEQUENO);
+        System.out.println(veiculo);
+        System.out.println(veiculo1);
     }
 }

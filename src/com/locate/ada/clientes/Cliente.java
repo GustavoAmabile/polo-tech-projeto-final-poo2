@@ -1,5 +1,7 @@
 package com.locate.ada.clientes;
 
+import com.locate.ada.enums.TipoPessoa;
+
 import javax.crypto.Cipher;
 import java.util.Objects;
 
@@ -7,15 +9,15 @@ public class Cliente {
 
     private String nome;
     private String documento;
-    private String tipo;
+    private TipoPessoa tipoPessoa;
 
     public Cliente() {
     }
 
-    public Cliente(String nome, String documento, String tipo) {
+    public Cliente(String nome, String documento, TipoPessoa tipoPessoa) {
         this.nome = nome;
         this.documento = documento;
-        this.tipo = tipo;
+        this.tipoPessoa = tipoPessoa;
 
     }
 
@@ -35,18 +37,18 @@ public class Cliente {
         this.documento = documento;
     }
 
-    public String getTipo() {
-        return tipo;
+    public TipoPessoa getTipoPessoa() {
+        return tipoPessoa;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setTipoPessoa(TipoPessoa tipo) {
+        this.tipoPessoa = tipo;
     }
 
     @Override
     public String toString() {
         return "Nome - '" + nome + '\'' +
                 "Documento -'" + documento + '\'' +
-                "Tipo do Cliente'" + tipo +'\'';
+                "Tipo do Cliente'" + tipoPessoa +'\'';
     }
 }

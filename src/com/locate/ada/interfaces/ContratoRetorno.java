@@ -7,5 +7,6 @@ import java.time.LocalDateTime;
 public interface ContratoRetorno {
 
     double calcularDiarias();
+    double calcularDiariasComDesconto();
     void devolverVeiculo(Aluguel aluguel);
 }

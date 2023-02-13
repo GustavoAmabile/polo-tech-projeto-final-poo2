@@ -1,5 +1,6 @@
 package com.locate.ada.veiculos;
 
+import com.locate.ada.enums.TipoVeiculo;
 import com.locate.ada.interfaces.VeiculoCadastravel;
 
 import java.util.ArrayList;
@@ -12,15 +13,15 @@ public class AdaVeiculos implements VeiculoCadastravel {
     }
     private void inserirVeiculosNaLista(){
 
-        Veiculo veiculo1 = new Veiculo("AAA-0001", "Vw", "Up", "pequeno");
-        Veiculo veiculo2 = new Veiculo("AAA-0002", "Renault", "Kwid", "pequeno");
-        Veiculo veiculo3 = new Veiculo("AAA-0003", "Fiat", "Mobi", "pequeno");
-        Veiculo veiculo4 = new Veiculo("BBB-0004", "Vw", "Voyage", "médio");
-        Veiculo veiculo5 = new Veiculo("BBB-0005", "Chevrolet", "Onix", "médio");
-        Veiculo veiculo6 = new Veiculo("BBB-0006", "Hyundai", "HB20", "médio");
-        Veiculo veiculo7 = new Veiculo("CCC-0007", "Honda", "HR-V", "SUV");
-        Veiculo veiculo8 = new Veiculo("CCC-0008", "Cherokee", "Compass", "SUV");
-        Veiculo veiculo9 = new Veiculo("CCC-0009", "Nissan", "Kics", "SUV");
+        Veiculo veiculo1 = new Veiculo("AAA-0001", "Vw", "Up", TipoVeiculo.PEQUENO);
+        Veiculo veiculo2 = new Veiculo("AAA-0002", "Renault", "Kwid", TipoVeiculo.PEQUENO);
+        Veiculo veiculo3 = new Veiculo("AAA-0003", "Fiat", "Mobi", TipoVeiculo.PEQUENO);
+        Veiculo veiculo4 = new Veiculo("BBB-0004", "Vw", "Voyage", TipoVeiculo.MEDIO);
+        Veiculo veiculo5 = new Veiculo("BBB-0005", "Chevrolet", "Onix", TipoVeiculo.MEDIO);
+        Veiculo veiculo6 = new Veiculo("BBB-0006", "Hyundai", "HB20", TipoVeiculo.MEDIO);
+        Veiculo veiculo7 = new Veiculo("CCC-0007", "Honda", "HR-V", TipoVeiculo.SUV);
+        Veiculo veiculo8 = new Veiculo("CCC-0008", "Cherokee", "Compass", TipoVeiculo.SUV);
+        Veiculo veiculo9 = new Veiculo("CCC-0009", "Nissan", "Kics", TipoVeiculo.SUV);
 
         veiculosDaLocadora.add(veiculo1);
         veiculosDaLocadora.add(veiculo2);
@@ -41,7 +42,7 @@ public class AdaVeiculos implements VeiculoCadastravel {
                     veiculo.getPlaca().equals(nome)
                     || veiculo.getMarca().equals(nome)
                     || veiculo.getModelo().equals(nome)
-                    || veiculo.getTipo().equals(nome)
+
             ) {
                 veiculoProcurado = veiculo;
             }
@@ -88,7 +89,7 @@ public class AdaVeiculos implements VeiculoCadastravel {
             if (
                     veiculoProcurado.getPlaca().contains(nome)
                     || veiculoProcurado.getModelo().contains(nome)
-                    || veiculoProcurado.getTipo().contains(nome)
+
             ) {
                 return veiculoProcurado;
             }
@@ -104,7 +105,7 @@ public class AdaVeiculos implements VeiculoCadastravel {
                     veiculoProcurado.getPlaca().contains(nome)
                     || veiculoProcurado.getMarca().contains(nome)
                     || veiculoProcurado.getModelo().contains(nome)
-                    || veiculoProcurado.getTipo().contains(nome)
+
             ) {
                 veiculosProcurados.add(veiculoProcurado);
             }
