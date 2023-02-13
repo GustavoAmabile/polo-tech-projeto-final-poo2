@@ -9,11 +9,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public interface ContratoAluguel<T> {
-
+public interface ContratoAluguel {
     void alugarVeiculo(Veiculo veiculo, Cliente cliente, LocalDateTime dataRetirada);
-    double calcularDiaria(Veiculo veiculo, Aluguel aluguel, Retorno retorno);
-
-
 
 }

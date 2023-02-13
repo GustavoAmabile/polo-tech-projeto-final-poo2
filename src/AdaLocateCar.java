@@ -1,10 +1,12 @@
 import com.locate.ada.alugueis.Aluguel;
+import com.locate.ada.alugueis.Retorno;
 import com.locate.ada.clientes.AdaClientes;
 import com.locate.ada.clientes.Cliente;
 import com.locate.ada.interfaces.ContratoAluguel;
 import com.locate.ada.veiculos.AdaVeiculos;
 import com.locate.ada.veiculos.Veiculo;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class AdaLocateCar {
@@ -77,10 +79,33 @@ public class AdaLocateCar {
 
         Aluguel aluguel1 =
                 new Aluguel ();
-        aluguel1.alugarVeiculo(adaVeiculos.getVeiculo(
-                "Up"), adaClientes.getCliente("Ana"), LocalDateTime.now()
+        aluguel1.alugarVeiculo(
+                adaVeiculos.getVeiculo("Up"),
+                adaClientes.getCliente("Lojas Elétricas"),
+                LocalDateTime.now()
         );
+        adaVeiculos.listarVeiculos();
 
+
+
+
+        System.out.println(aluguel1);
+
+        Retorno retornoAluguel1 = new Retorno(aluguel1);
+        retornoAluguel1.setDataDevolucao((LocalDateTime.now().plusDays(5)));
+        System.out.println(retornoAluguel1.calcularDiarias());
+        System.out.println();
+
+        retornoAluguel1.devolverVeiculo(aluguel1);
+        adaVeiculos.listarVeiculos();
+
+        Aluguel aluguel2 =
+                new Aluguel();
+        aluguel2.alugarVeiculo(
+                adaVeiculos.getVeiculo("Up"),
+                adaClientes.getCliente("Lojas Elétricas"),
+                LocalDateTime.now()
+        );
 
 
 
