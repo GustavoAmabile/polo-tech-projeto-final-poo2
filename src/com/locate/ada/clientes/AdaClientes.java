@@ -1,11 +1,13 @@
 package com.locate.ada.clientes;
 
+import com.locate.ada.interfaces.ClienteCadastravel;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdaClientes {
+public class AdaClientes implements ClienteCadastravel {
 
-    private List<Cliente> clientesDaLocadora = new ArrayList<>();
+    private final List<Cliente> clientesDaLocadora = new ArrayList<>();
 
 
     public AdaClientes(){
@@ -29,14 +31,80 @@ public class AdaClientes {
         clientesDaLocadora.add(cliente6);
     }
 
-    public List<Cliente> getClientesDaLocadora() {
-        return clientesDaLocadora;
+    public Cliente getCliente(String nome) {
+        Cliente clienteProcurado = new Cliente();
+        for (Cliente cliente: clientesDaLocadora) {
+            if (cliente.getNome().equals(nome)
+                    || cliente.getDocumento().equals(nome)
+            ) {
+                clienteProcurado = cliente;
+            }
+        }
+        return clienteProcurado;
     }
 
-    public void setClientesDaLocadora(List<Cliente> clientesDaLocadora) {
-        this.clientesDaLocadora = clientesDaLocadora;
+
+
+    @Override
+    public void adicionarCliente(Cliente cliente) {
+        for (Cliente clienteParaAdicionar: clientesDaLocadora) {
+            if (clienteParaAdicionar.getDocumento().equals(cliente.getDocumento())) {
+                throw new IllegalArgumentException("Cliente já cadastrado");
+            }
+        }
+        clientesDaLocadora.add(cliente);
     }
 
+    @Override
+    public void atualizarCliente(Cliente clienteDesatualizado, Cliente clienteAtualizado) {
+        int posicaoCliente = clientesDaLocadora.indexOf(clienteDesatualizado);
+        if (posicaoCliente != -1) {
+           clientesDaLocadora.set(posicaoCliente, clienteAtualizado);
+        } else {
+            throw new IllegalArgumentException("Cliente não cadastrado");
+        }
+    }
+
+    @Override
+    public void removerCliente(Cliente cliente) {
+        if (!clientesDaLocadora.contains(cliente)) {
+            throw new IllegalArgumentException("Cliente não encontrado");
+        }
+        clientesDaLocadora.remove(cliente);
+    }
+
+    @Override
+    public void listarClientes() {
+        clientesDaLocadora.forEach(System.out::println);
+    }
+
+    @Override
+    public Cliente buscarClientePorParteNome(String nome) {
+        for (Cliente clienteProcurado: clientesDaLocadora) {
+            if (
+                    clienteProcurado.getNome().contains(nome)
+                    || clienteProcurado.getDocumento().contains(nome)
+            ) {
+                return clienteProcurado;
+            }
+        }
+        throw new IllegalArgumentException("Cliente não encontrado");
+    }
+
+    @Override
+    public void listarClientesPorParteNome(String nome) {
+            List<Cliente> clientesProcurados = new ArrayList<>();
+            for (Cliente clienteProcurado : clientesDaLocadora) {
+                if (
+                        clienteProcurado.getNome().contains(nome)
+                        || clienteProcurado.getTipo().contains(nome)
+                        || clienteProcurado.getDocumento().contains(nome)
+                ) {
+                    clientesProcurados.add(clienteProcurado);
+                }
+            }
+            clientesProcurados.forEach(System.out::println);
+    }
     @Override
     public String toString() {
         return "Clientes Ada Locate Car";

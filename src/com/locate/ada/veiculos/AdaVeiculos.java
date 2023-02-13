@@ -6,8 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdaVeiculos implements VeiculoCadastravel {
-    private List<Veiculo> veiculosDaLocadora = new ArrayList<>();
-
+    private final List<Veiculo> veiculosDaLocadora = new ArrayList<>();
     public AdaVeiculos (){
       inserirVeiculosNaLista();
     }
@@ -35,6 +34,21 @@ public class AdaVeiculos implements VeiculoCadastravel {
 
     }
 
+    public Veiculo getVeiculo(String nome) {
+        Veiculo veiculoProcurado = new Veiculo();
+        for (Veiculo veiculo: veiculosDaLocadora) {
+            if(
+                    veiculo.getPlaca().equals(nome)
+                    || veiculo.getMarca().equals(nome)
+                    || veiculo.getModelo().equals(nome)
+                    || veiculo.getTipo().equals(nome)
+            ) {
+                veiculoProcurado = veiculo;
+            }
+        }
+        return veiculoProcurado;
+    }
+
     @Override
     public void adicionarVeiculo(Veiculo veiculo) {
         for (Veiculo veiculoParaAdicionar: veiculosDaLocadora) {
@@ -45,28 +59,13 @@ public class AdaVeiculos implements VeiculoCadastravel {
         veiculosDaLocadora.add(veiculo);
     }
 
-    public Veiculo getVeiculo(String nome) {
-        Veiculo veiculoProcurado = new Veiculo();
-        for (Veiculo veiculo: veiculosDaLocadora){
-            if(veiculo.getPlaca().equals(nome)
-                    || veiculo.getMarca().contains(nome)
-                    || veiculo.getModelo().contains(nome)
-                    || veiculo.getTipo().contains(nome)
-            ) {
-                veiculoProcurado = veiculo;
-            }
-        }
-        return veiculoProcurado;
-    }
-
-
     @Override
     public void atualizarVeiculo(Veiculo veiculoDesatualizado, Veiculo veiculoAtualizado) {
         int posicaoVeiculo = veiculosDaLocadora.indexOf(veiculoDesatualizado);
         if (posicaoVeiculo != -1) {
             veiculosDaLocadora.set(posicaoVeiculo, veiculoAtualizado);
         } else {
-            throw new IllegalArgumentException("Veículo não cadastrado ou não devolvido");
+            throw new IllegalArgumentException("Veículo não encontrado");
         }
     }
 
@@ -85,23 +84,24 @@ public class AdaVeiculos implements VeiculoCadastravel {
 
     @Override
     public Veiculo buscarVeiculoPorParteNome(String nome) {
-        for (Veiculo veiculoProcurado : veiculosDaLocadora) {
-            if (veiculoProcurado.getPlaca().contains(nome)
-                    || veiculoProcurado.getMarca().contains(nome)
+        for (Veiculo veiculoProcurado: veiculosDaLocadora) {
+            if (
+                    veiculoProcurado.getPlaca().contains(nome)
                     || veiculoProcurado.getModelo().contains(nome)
                     || veiculoProcurado.getTipo().contains(nome)
             ) {
                 return veiculoProcurado;
             }
         }
-        throw new IllegalArgumentException("Veículo não cadastrado ou não devolvido");
+        throw new IllegalArgumentException("Veículo não encontrado");
     }
 
     @Override
     public void listarVeiculosPorParteNome(String nome) {
         List<Veiculo> veiculosProcurados = new ArrayList<>();
         for (Veiculo veiculoProcurado: veiculosDaLocadora) {
-            if (veiculoProcurado.getPlaca().contains(nome)
+            if (
+                    veiculoProcurado.getPlaca().contains(nome)
                     || veiculoProcurado.getMarca().contains(nome)
                     || veiculoProcurado.getModelo().contains(nome)
                     || veiculoProcurado.getTipo().contains(nome)
