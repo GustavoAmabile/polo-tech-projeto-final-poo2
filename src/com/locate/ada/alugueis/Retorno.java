@@ -1,3 +1,5 @@
+package com.locate.ada.alugueis;
+
 import com.locate.ada.clientes.Cliente;
 import com.locate.ada.veiculos.Veiculo;
 
@@ -40,7 +42,7 @@ public class Retorno {
 
     @Override
     public String toString() {
-        return "Retorno{" +
+        return "com.locate.ada.alugueis.Retorno{" +
                 "veiculo=" + veiculo +
                 ", cliente=" + cliente +
                 ", retorno=" + retorno +

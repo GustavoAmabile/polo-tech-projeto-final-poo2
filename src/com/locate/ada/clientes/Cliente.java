@@ -5,7 +5,6 @@ import java.util.Objects;
 
 public class Cliente {
 
-    private int id;
     private String nome;
     private String documento;
     private String tipo;
@@ -17,15 +16,7 @@ public class Cliente {
         this.nome = nome;
         this.documento = documento;
         this.tipo = tipo;
-        ++id;
-    }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNome() {
@@ -52,12 +43,10 @@ public class Cliente {
         this.tipo = tipo;
     }
 
-
     @Override
     public String toString() {
-        return  "Registro ='" + id + '\'' +
-                "Nome='" + nome + '\'' +
-                "Documento='" + documento + '\'' +
-                "Tipo='" + tipo + '\'';
+        return "Nome - '" + nome + '\'' +
+                "Documento -'" + documento + '\'' +
+                "Tipo do Cliente'" + tipo +'\'';
     }
 }

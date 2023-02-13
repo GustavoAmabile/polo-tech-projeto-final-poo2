@@ -34,7 +34,8 @@ public class AdaClientes implements ClienteCadastravel {
     public Cliente getCliente(String nome) {
         Cliente clienteProcurado = new Cliente();
         for (Cliente cliente: clientesDaLocadora) {
-            if (cliente.getNome().equals(nome)
+            if (
+                    cliente.getNome().equals(nome)
                     || cliente.getDocumento().equals(nome)
             ) {
                 clienteProcurado = cliente;
@@ -107,6 +108,6 @@ public class AdaClientes implements ClienteCadastravel {
     }
     @Override
     public String toString() {
-        return "Clientes Ada Locate Car";
+        return clientesDaLocadora.toString();
     }
 }

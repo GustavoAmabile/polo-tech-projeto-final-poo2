@@ -1,19 +1,17 @@
-import com.locate.ada.clientes.Cliente;
+import com.locate.ada.alugueis.Aluguel;
+import com.locate.ada.alugueis.Retorno;
 import com.locate.ada.veiculos.AdaVeiculos;
 import com.locate.ada.veiculos.Veiculo;
 
-import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Administracao {
 
 
 //    private final List<Veiculo> veiculos;
 //    private final List<Cliente> clientes;
-//    private final List<Aluguel> retiradas;
-//    private final List<Retorno> devolucoes;
+//    private final List<com.locate.ada.alugueis.Aluguel> retiradas;
+//    private final List<com.locate.ada.alugueis.Retorno> devolucoes;
 
     private double diaria;
     private AdaVeiculos adaVeiculos;
@@ -35,11 +33,11 @@ public class Administracao {
 //        return clientes;
 //    }
 //
-//    public List<Aluguel> getRetiradas() {
+//    public List<com.locate.ada.alugueis.Aluguel> getRetiradas() {
 //        return retiradas;
 //    }
 //
-//    public List<Retorno> getDevolucoes() {
+//    public List<com.locate.ada.alugueis.Retorno> getDevolucoes() {
 //        return devolucoes;
 //    }
 
@@ -62,40 +60,15 @@ public class Administracao {
 
 
 
-//    public List<Veiculo> buscarVeiculoParteNome(String nome) {
-//        List<Veiculo> veiculosProcurados = new ArrayList<>();
-//        for (Veiculo veiculo: veiculos) {
-//            if (veiculo.getModelo().contains(nome)) {
-//                veiculosProcurados.add(veiculo);
-//            }
-//        }
-//        return veiculosProcurados;
-//    }
-//
-//    public void adicionarCliente(Cliente cliente) {
-//        for (Cliente consumidor: clientes) {
-//            if (consumidor.getNome().equals(cliente.getNome())) {
-//                throw new IllegalArgumentException("com.locate.ada.clientes.Cliente já cadastrado");
-//            }
-//        }
-//        clientes.add(cliente);
-//    }
-//
-//    public void atualizarCliente(Cliente cliente) {
-//        for (int i = 0; i < clientes.size(); i++) {
-//            if (clientes.get(i).getNome().equals(cliente.getNome())) {
-//                clientes.set(i, cliente);
-//            }
-//        }
-//        throw new IllegalArgumentException("com.locate.ada.clientes.Cliente não cadastrado");
-//    }
+
+
 
 //    public void alugarVeiculo(Veiculo veiculo, Cliente cliente, LocalDateTime retirada) {
 //        if (!veiculo.isDisponivel()) {
 //            throw new IllegalArgumentException("Carro indisponível para locação");
 //        }
 //
-//        Aluguel aluguel = new Aluguel(veiculo, cliente, retirada);
+//        com.locate.ada.alugueis.Aluguel aluguel = new com.locate.ada.alugueis.Aluguel(veiculo, cliente, retirada);
 //        veiculo.setDisponivel(false);
 //        retiradas.add(aluguel);
 //    }
@@ -105,7 +78,7 @@ public class Administracao {
 //            throw new IllegalArgumentException("Carro não alugado");
 //        }
 //
-//        Retorno retorno = new Retorno(veiculo, cliente, devolucao);
+//        com.locate.ada.alugueis.Retorno retorno = new com.locate.ada.alugueis.Retorno(veiculo, cliente, devolucao);
 //        veiculo.setDisponivel(true);
 //        devolucoes.add(retorno);
 //
