@@ -10,7 +10,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class AdaLocateCar {
-
     public static void main(String[] args) {
 
         AdaVeiculos adaVeiculos = new AdaVeiculos();
@@ -86,9 +85,6 @@ public class AdaLocateCar {
         );
         adaVeiculos.listarVeiculos();
 
-
-
-
         System.out.println(aluguel1);
 
         Retorno retornoAluguel1 = new Retorno(aluguel1);
@@ -106,10 +102,5 @@ public class AdaLocateCar {
                 adaClientes.getCliente("Lojas Elétricas"),
                 LocalDateTime.now()
         );
-
-
-
-
-
     }
 }
